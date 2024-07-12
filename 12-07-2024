@@ -1,0 +1,74 @@
+11)
+        return sum / array.length;
+    }
+
+    public static double calculateMedian(double[] array) {
+        Arrays.sort(array);
+        if (array.length % 2 == 0) {
+            return (array[array.length / 2 - 1] + array[array.length / 2]) / 2.0;
+        } else {
+            return array[array.length / 2];
+        }
+    }
+
+    public static double calculateMode(double[] array) {
+        Map<Double, Integer> frequencyMap = new HashMap<>();
+        for (double num : array) {
+            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+        }
+
+        double mode = array[0];
+        int maxCount = 0;
+        for (Map.Entry<Double, Integer> entry : frequencyMap.entrySet()) {
+            if (entry.getValue() > maxCount) {
+                maxCount = entry.getValue();
+                mode = entry.getKey();
+            }
+        }
+        return mode;
+    }
+}
+
+15)
+import java.util.Arrays;
+
+public class CompositeNumbers {
+    public static void main(String[] args) {
+         int[] array = {16, 18, 27, 16, 23, 21, 19};
+         System.out.println("Array: " + Arrays.toString(array));
+        System.out.println("Number of Composite Numbers: " + countCompositeNumbers(array));
+    }
+
+    public static int countCompositeNumbers(int[] array) {
+        int count = 0;
+        for (int num : array) {
+            if (isComposite(num)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static boolean isComposite(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+     public static int countCompositeNumbers(double[] array) {
+        int count = 0;
+        for (double num : array) {
+            if (num % 1 == 0 && isComposite((int) num)) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
+
