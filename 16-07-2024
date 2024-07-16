@@ -1,0 +1,73 @@
+INTERFACE INHARITENCE :
+
+Basic Interface :
+ interface Printable {
+    void print();
+}
+
+ class Printer implements Printable {
+    public void print() {
+        System.out.println("Printing...");
+    }
+}
+
+ public class Main {
+    public static void main(String[] args) {
+        Printer printer = new Printer();
+        printer.print();
+    }
+}
+
+INTERFACE WITH CONSTANTS  :
+ 
+ interface Shape {
+    double PI = 3.14;  
+
+     double calculateArea();
+}
+
+ class Circle implements Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public double calculateArea() {
+        return PI * radius * radius;
+    }
+}
+
+ public class Main {
+    public static void main(String[] args) {
+        Circle circle = new Circle(5);
+        System.out.println("Area of circle: " + circle.calculateArea());
+    }
+}
+
+INTERFACE WITH DEFAULT METHOD :
+ 
+ interface Vehicle {
+    void start(); // Abstract method
+
+    default void displayInfo() {
+        System.out.println("This is a vehicle.");
+    }
+}
+
+ class Car implements Vehicle {
+    public void start() {
+        System.out.println("Car is starting...");
+    }
+}
+
+ public class Main {
+    public static void main(String[] args) {
+        Car car = new Car();
+        car.start();
+        car.displayInfo();  
+    }
+}
+
+
+
