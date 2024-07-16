@@ -1,0 +1,84 @@
+SINGLE INHERITANCE : 
+
+// Superclass
+class Animal {
+    void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+// Subclass
+class Dog extends Animal {
+    void bark() {
+        System.out.println("The dog barks.");
+    }
+}
+
+public class SingleInheritance {
+    public static void main(String[] args) {
+        Dog myDog = new Dog();
+        myDog.eat();   
+        myDog.bark();  
+    }
+}
+
+Multilevel Inheritance :
+
+ class Animal {
+    void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+ class Dog extends Animal {
+    void bark() {
+        System.out.println("The dog barks.");
+    }
+}
+
+ class Puppy extends Dog {
+    void weep() {
+        System.out.println("The puppy weeps.");
+    }
+}
+
+public class MultilevelInheritance {
+    public static void main(String[] args) {
+        Puppy myPuppy = new Puppy();
+        myPuppy.eat();   
+        myPuppy.bark();  
+        myPuppy.weep();  
+    }
+}
+
+Hierarchical Inheritance :
+
+ class Animal {
+    void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+ class Dog extends Animal {
+    void bark() {
+        System.out.println("The dog barks.");
+    }
+}
+
+ class Cat extends Animal {
+    void meow() {
+        System.out.println("The cat meows.");
+    }
+}
+
+public class HierarchicalInheritance {
+    public static void main(String[] args) {
+        Dog myDog = new Dog();
+        myDog.eat();   
+        myDog.bark(); 
+        
+        Cat myCat = new Cat();
+        myCat.eat();   
+        myCat.meow();  
+    }
+}
