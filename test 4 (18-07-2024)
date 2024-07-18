@@ -1,0 +1,45 @@
+ARITHMETIC EXCEPTION :
+public class ExceptionHandlingExample {
+    public static void main(String[] args) {
+        try {
+            int divideByZero = 10/ 0;
+        } catch (ArithmeticException e) {
+            System.out.println("ArithmeticException caught: " + e.getMessage());
+        } finally {
+            System.out.println("This block is always executed.");
+        }
+    }
+}
+
+PASSWARD VALLID :
+
+public class PasswordValidationExample {
+    public static void main(String[] args) {
+        String password = "99999";  
+
+        try {
+            validatePassword(password);
+            System.out.println("Password is valid.");
+        } catch (InvalidPasswordException e) {
+            System.out.println("InvalidPasswordException caught: " + e.getMessage());
+        }
+    }
+
+    public static void validatePassword(String password) throws InvalidPasswordException {
+        if (password.matches("9") ){
+            throw new InvalidPasswordException("Password not match.");
+        }
+
+        if (!password.matches("99")) {
+            throw new InvalidPasswordException("Password not match:");
+        }
+
+        if (!password.matches("999")) {
+            throw new InvalidPasswordException("Password not match:");
+        }
+
+        if (!password.matches("99999")) {
+            throw new InvalidPasswordException("Password  match:");
+        }
+    }
+}
