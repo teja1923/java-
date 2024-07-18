@@ -1,0 +1,72 @@
+ METHOD OVERLODING :
+Example 1: Adding two numbers
+1)
+public class Calculator {
+     public int add(int a, int b) {
+        return a + b;
+    }
+
+     public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+     public double add(double a, double b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        
+        System.out.println("Sum of two integers: " + calc.add(5, 10));
+        System.out.println("Sum of three integers: " + calc.add(5, 10, 15));
+        System.out.println("Sum of two doubles: " + calc.add(5.5, 10.5));
+    }
+}
+Example 2: Displaying information
+
+public class Display {
+     public void show(String s) {
+        System.out.println("String: " + s);
+    }
+
+     public void show(int i) {
+        System.out.println("Integer: " + i);
+    }
+
+     public void show(double d) {
+        System.out.println("Double: " + d);
+    }
+
+    public static void main(String[] args) {
+        Display display = new Display();
+        
+        display.show("Hello, World!");
+        display.show(100);
+        display.show(99.99);
+    }
+} 
+
+ 
+Example 3: Calculating area
+
+public class AreaCalculator {
+     public int area(int length, int width) {
+        return length * width;
+    }
+
+     public int area(int side) {
+        return side * side;
+    }
+
+     public double area(double radius) {
+        return Math.PI * radius * radius;
+    }
+
+    public static void main(String[] args) {
+        AreaCalculator ac = new AreaCalculator();
+        
+        System.out.println("Area of rectangle: " + ac.area(5, 10));
+        System.out.println("Area of square: " + ac.area(5));
+        System.out.println("Area of circle: " + ac.area(7.5));
+    }
+}
