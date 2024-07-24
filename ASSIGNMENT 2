@@ -1,0 +1,249 @@
+1)
+
+ class NumberRange {
+    void even() {
+        System.out.println("Parent class - Even numbers from 1 to 20:");
+        for (int i = 1; i <= 20; i++) {
+            if (i % 2 == 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    void odd() {
+        System.out.println("Parent class - Odd numbers from 1 to 20:");
+        for (int i = 1; i <= 20; i++) {
+            if (i % 2 != 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    void prime() {
+        System.out.println("Parent class - Prime numbers from 1 to 20:");
+        for (int i = 2; i <= 20; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+     boolean isPrime(int n) {
+        if (n <= 1) return false;
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) return false;
+        }
+        return true;
+    }
+}
+
+ class ExtendedNumberRange extends NumberRange {
+    @Override
+    void even() {
+        System.out.println("Child class - Even numbers from 1 to 30:");
+        for (int i = 1; i <= 30; i++) {
+            if (i % 2 == 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    @Override
+    void odd() {
+        System.out.println("Child class - Odd numbers from 1 to 30:");
+        for (int i = 1; i <= 30; i++) {
+            if (i % 2 != 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    @Override
+    void prime() {
+        System.out.println("Child class - Prime numbers from 1 to 30:");
+        for (int i = 2; i <= 30; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ExtendedNumberRange extendedRange = new ExtendedNumberRange();
+        
+        extendedRange.even();
+        extendedRange.odd();
+        extendedRange.prime();
+    }
+}
+
+2)
+class MyClass {
+    int a, b;
+
+     MyClass() {
+        a = 10;
+        b = 15;
+    }
+
+     MyClass(int a, int b) {
+        this.a = a;
+        this.b = b;
+    }
+
+     void disp() {
+        System.out.println("a = " + a + ", b = " + b);
+    }
+
+    public static void main(String[] args) {
+         MyClass obj1 = new MyClass();
+        obj1.disp();   
+
+         MyClass obj2 = new MyClass(20, 25);
+        obj2.disp();  
+    }
+}
+
+3)
+ class Shape {
+     void area(int a, int b) {
+        if (a == b) {
+            System.out.println("Area of the square: " + (a * a));
+        } else {
+            System.out.println("For square, both sides should be equal. Provided sides are not equal.");
+        }
+    }
+}
+
+ class Rectangle extends Shape {
+     @Override
+    void area(int a, int b) {
+        System.out.println("Area of the rectangle: " + (a * b));
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+         Shape square = new Shape();
+        square.area(5, 5);  
+
+         Rectangle rectangle = new Rectangle();
+        rectangle.area(5, 10);   
+    }
+}
+
+
+4)
+
+class OverloadingExample {
+
+     int sum(int a, int b) {
+        return a + b;
+    }
+
+     int sum(int a, int b, int c) {
+        return a + b + c;
+    }
+
+     int sum(int a) {
+        return a;
+    }
+
+     double sum(double a, double b) {
+        return a + b;
+    }
+
+     float sum(float a, float b) {
+        return a + b;
+    }
+
+     int sum(int b, long a) {
+        return (int) (a + b);
+    }
+
+     int sum(long a, int b) {
+        return (int) (a + b);
+    }
+
+    public static void main(String[] args) {
+        OverloadingExample obj = new OverloadingExample();
+        
+         System.out.println("Sum of 2 and 3: " + obj.sum(2, 3)); // 5
+        
+         System.out.println("Sum of 1, 2, and 3: " + obj.sum(1, 2, 3)); // 6
+        
+         System.out.println("Sum of 5: " + obj.sum(5)); // 5
+        
+         System.out.println("Sum of 2.5 and 3.5: " + obj.sum(2.5, 3.5)); // 6.0
+        System.out.println("Sum of 2.5f and 3.5f: " + obj.sum(2.5f, 3.5f)); // 6.0
+        
+         System.out.println("Sum of 3 and 5L: " + obj.sum(3, 5L)); // 8
+        System.out.println("Sum of 5L and 3: " + obj.sum(5L, 3)); // 8
+    }
+}
+
+
+5)
+ 
+interface Tree {
+    void fruits(int a, int b);
+    void leaves(int a, int b, int c);
+    void flowers(int a, int b, int c, int d);
+}
+
+ class Branch1 implements Tree {
+    @Override
+    public void fruits(int a, int b) {
+        System.out.println("Branch1 - Number of fruits: " + (a + b));
+    }
+
+    @Override
+    public void leaves(int a, int b, int c) {
+        System.out.println("Branch1 - Number of leaves: " + (a + b + c));
+    }
+
+    @Override
+    public void flowers(int a, int b, int c, int d) {
+        System.out.println("Branch1 - Number of flowers: " + (a + b + c + d));
+    }
+}
+
+ class Branch2 implements Tree {
+    @Override
+    public void fruits(int a, int b) {
+        System.out.println("Branch2 - Number of fruits: " + (a * b));
+    }
+
+    @Override
+    public void leaves(int a, int b, int c) {
+        System.out.println("Branch2 - Number of leaves: " + (a * b * c));
+    }
+
+    @Override
+    public void flowers(int a, int b, int c, int d) {
+        System.out.println("Branch2 - Number of flowers: " + (a * b * c * d));
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+         Tree branch1 = new Branch1();
+        Tree branch2 = new Branch2();
+        
+         branch1.fruits(1, 2);
+        branch1.leaves(1, 2, 3);
+        branch1.flowers(1, 2, 3, 4);
+        
+         branch2.fruits(1, 2);
+        branch2.leaves(1, 2, 3);
+        branch2.flowers(1, 2, 3, 4);
+    }
+}
